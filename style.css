@@ -1,20 +1,40 @@
 *{
     margin: 0;
-    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial';
 }
 
 
-.container {
-    width: 500px;
-    height: 90vh;
-    margin: 15px auto;
-    text-align: center;
-    background-color: coral;
-    border-radius: 10px;
+.contenedor {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
 }
 
-.texto {
-    width: 100%;
-    font-size: 20px;
-    padding-top: 20px;
+.button {
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.button:hover {
+    background-color: rgb(36, 179, 131);
+}
+
+.button:active {
+    background-color: rgb(127, 155, 255);
+}
+
+
+.img {
+    width: 200px;
+    height: 200px;
 }

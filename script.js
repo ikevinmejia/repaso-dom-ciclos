@@ -1,41 +1,75 @@
-// 1. Tener una referencia -> document.querySelector('')
-// 2. Crear una etiqueta HTML -> document.createElement('')
-// 3. Agregar atributos necesarios o texto -> setAttribute(), innerText, classList.add('')
-// 4. Agregar el elemento creado a la referencia. -> append()
-
-// 1. Paso.
-const container =  document.querySelector('.container');
-
-// 2. Paso.
-
-const valor = document.createElement('p');
-
-// 3. Paso.
-
-// Agregando una clase.
-
-valor.innerText = 'Estan muy pros';
-
-valor.classList.add('texto');
-
-// 4. Paso.
-
-container.appendChild(valor);
+const btnDerecha = document.querySelector('.btn-derecha');
+const btnIzquierda = document.querySelector('.btn-izquierda');
+const titulo = document.querySelector('.titulo');
+const descripcion = document.querySelector('.descrp');
+const image = document.querySelector('img');
 
 
-for (let i = 1; i <= 10; i++) {
+let contador = 0;
 
-    const valor = document.createElement('p');
-    valor.innerText = `7 * ${i} = {i*7}`;
-    valor.classList.add('texto');
-    container.appendChild(valor);
+
+let arreglo = [
+    {
+        nombre: 'Golem',
+        descripcion: 'Es muy grande',
+        image: './img/juanMiguel.jpeg',
+    },
+    {
+        nombre: 'Arquero',
+        descripcion: 'Es eficaz y rapido',
+        image: './img/Santiago.jpeg',
+    },
+    {
+        nombre: 'Caballero',
+        descripcion: 'Fuerte y desgarrador',
+        image: './img/Sebastian.jpeg',
+    },
+    {
+        nombre: 'Impresora',
+        descripcion: 'Tiene muy buenos colores',
+        image: './img/Sebastian.jpeg',
+    },
+];
+
+    console.log(`La longitud del arreglo es de ${arreglo.length}`);
+
+    titulo.innerText = `${arreglo[contador].nombre}`;
+
+    descripcion.innerText = `${arreglo[contador].descripcion}`;
+
+    image.setAttribute('src', `${arreglo[contador].image}`)
+
+    btnIzquierda.disabled = true;
+
+const irDerecha = () => {
+    if (contador < arreglo.length - 1 ) {
+        contador = contador + 1 ;
+
+        titulo.innerText = `${arreglo[contador].nombre}`;
+
+        descripcion.innerText = `${arreglo[contador].descripcion}`;
+
+        image.setAttribute('src', `${arreglo[contador].image}`)
+
+        btnIzquierda.disabled = false;
+
+        console.warn(contador);
+    }
+
 }
 
-// 1 * 7 = 7
-// 2 * 7 = 14
-// 3 * 7 = 21
-// .
-// .
-// 10 * 7 = 70
+const irIzquierda = () => {
+    contador = contador - 1 ;
+    titulo.innerText = `${arreglo[contador].nombre}`;
+    descripcion.innerText = `${arreglo[contador].descripcion}`;
+    image.setAttribute('src', `${arreglo[contador].image}`)
+    console.error(contador);
 
+
+}
+
+
+
+btnDerecha.addEventListener('click', irDerecha);
+btnIzquierda.addEventListener('click', irIzquierda);
 
